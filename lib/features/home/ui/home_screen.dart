@@ -28,6 +28,20 @@ class _HomeScreenState extends State<HomeScreen> {
           Navigator.of(context).pushNamed(RouteManager.wishlist);
         } else if (state is HomeNavigateCartScreenActionState) {
           Navigator.of(context).pushNamed(RouteManager.cart);
+        } else if (state is HomeItemAddedToCartActionState) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Item added to cart'),
+              duration: Duration(seconds: 1),
+            ),
+          );
+        } else if (state is HomeWishlistedItemActionState) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Item added to wishlist'),
+              duration: Duration(seconds: 1),
+            ),
+          );
         }
       },
       listenWhen: (previous, current) => current is HomeActionState,

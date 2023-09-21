@@ -1,14 +1,15 @@
+import 'package:bloc_practice/features/cart/bloc/cart_bloc.dart';
 import 'package:bloc_practice/features/home/bloc/home_bloc.dart';
 import 'package:bloc_practice/features/home/models/home_product_model.dart';
 import 'package:flutter/material.dart';
 
-class ProductTileWidget extends StatelessWidget {
-  final HomeBloc homeBloc;
+class CartTileWidget extends StatelessWidget {
+  final CartBloc cartBloc;
   final ProductModel productModel;
-  const ProductTileWidget({
+  const CartTileWidget({
     super.key,
     required this.productModel,
-    required this.homeBloc,
+    required this.cartBloc,
   });
 
   @override
@@ -83,11 +84,11 @@ class ProductTileWidget extends StatelessWidget {
                     children: [
                       IconButton(
                         onPressed: () {
-                          homeBloc.add(
-                            HomeWishListClickedEvent(
-                              clickedProduct: productModel,
-                            ),
-                          );
+                          // homeBloc.add(
+                          //   HomeWishListClickedEvent(
+                          //     clickedProduct: productModel,
+                          //   ),
+                          // );
                         },
                         icon: const Icon(
                           Icons.favorite_border,
@@ -95,9 +96,9 @@ class ProductTileWidget extends StatelessWidget {
                       ),
                       IconButton(
                         onPressed: () {
-                          homeBloc.add(
-                            HomeCartClickedEvent(clickedProduct: productModel),
-                          );
+                          // homeBloc.add(
+                          //   HomeCartClickedEvent(clickedProduct: productModel),
+                          // );
                         },
                         icon: const Icon(Icons.shopping_cart_outlined),
                       )

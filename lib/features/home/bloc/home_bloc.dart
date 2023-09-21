@@ -47,12 +47,14 @@ FutureOr<void> homeWishListClickedEvent(
     HomeWishListClickedEvent event, Emitter<HomeState> emit) {
   print('wishlist product clicked');
   wishlistItems.add(event.clickedProduct);
+  emit(HomeWishlistedItemActionState());
 }
 
 FutureOr<void> homeCartClickedEvent(
     HomeCartClickedEvent event, Emitter<HomeState> emit) {
   cartItems.add(event.clickedProduct);
   print('cart product clicked');
+  emit(HomeItemAddedToCartActionState());
 }
 
 FutureOr<void> homeWishlistNavigationButtonEvent(

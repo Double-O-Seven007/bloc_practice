@@ -19,6 +19,11 @@ class HomeLoadedSuccessState extends HomeState {
 
 class HomeErrorState extends HomeState {}
 
+//Action States
 class HomeNavigateToWishlistScreenActionState extends HomeActionState {}
 
 class HomeNavigateCartScreenActionState extends HomeActionState {}
+
+class HomeItemAddedToCartActionState extends HomeActionState {}
+
+class HomeWishlistedItemActionState extends HomeActionState {}
