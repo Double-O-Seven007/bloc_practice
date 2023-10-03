@@ -11,6 +11,7 @@ part 'cart_state.dart';
 class CartBloc extends Bloc<CartEvent, CartState> {
   CartBloc() : super(CartInitialState()) {
     on<CartInitialEvent>(cartInitialEvent);
+    on<CartDeleteEvent>(cartDeleteEvent);
   }
 
   FutureOr<void> cartInitialEvent(
@@ -18,5 +19,11 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     emit(
       CartSuccessState(itemsInCart: cartItems),
     );
+  }
+
+  FutureOr<void> cartDeleteEvent(
+      CartDeleteEvent event, Emitter<CartState> emit) {
+    cartItems.remove(event.productModel);
+    emit(CartSuccessState(itemsInCart: cartItems));
   }
 }

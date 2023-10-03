@@ -12,6 +12,7 @@ class WishlistScreen extends StatefulWidget {
 
 class _WishlistScreenState extends State<WishlistScreen> {
   final WishlistBloc wishlistBloc = WishlistBloc();
+  late int index;
   @override
   void initState() {
     wishlistBloc.add(WishlistIntialEvent());
@@ -22,9 +23,7 @@ class _WishlistScreenState extends State<WishlistScreen> {
   Widget build(BuildContext context) {
     return BlocConsumer<WishlistBloc, WishlistState>(
       bloc: wishlistBloc,
-      listener: (context, state) {
-        // TODO: implement listener
-      },
+      listener: (context, state) {},
       listenWhen: (previous, current) => current is WishlistActionState,
       buildWhen: (previous, current) => current is! WishlistActionState,
       builder: (context, state) {

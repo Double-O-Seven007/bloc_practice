@@ -1,3 +1,4 @@
+import 'package:bloc_practice/features/cart/bloc/cart_bloc.dart';
 import 'package:bloc_practice/features/home/bloc/home_bloc.dart';
 import 'package:bloc_practice/features/home/models/home_product_model.dart';
 import 'package:bloc_practice/features/wishlist/bloc/wishlist_bloc.dart';
@@ -84,23 +85,19 @@ class WishlistTileWidget extends StatelessWidget {
                     children: [
                       IconButton(
                         onPressed: () {
-                          // homeBloc.add(
-                          //   HomeWishListClickedEvent(
-                          //     clickedProduct: productModel,
-                          //   ),
-                          // );
+                          wishlistBloc.add(
+                            WishlistDeleteEvent(productModel: productModel),
+                          );
                         },
                         icon: const Icon(
-                          Icons.favorite_border,
+                          Icons.delete,
                         ),
                       ),
                       IconButton(
-                        onPressed: () {
-                          // homeBloc.add(
-                          //   HomeCartClickedEvent(clickedProduct: productModel),
-                          // );
-                        },
-                        icon: const Icon(Icons.shopping_cart_outlined),
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.shopping_cart,
+                        ),
                       )
                     ],
                   ),
